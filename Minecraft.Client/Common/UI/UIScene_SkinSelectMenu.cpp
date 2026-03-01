@@ -1135,7 +1135,8 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 	{
 		DLCPack *thisPack = app.m_dlcManager.getPack(m_packIndex - SKIN_SELECT_MAX_DEFAULTS, DLCManager::e_DLCType_Skin);
 		// Fix the incorrect string type on title to display correctly
-		const char* name = static_cast<const char*>(thisPack->getName().c_str());
+
+		const char* name = reinterpret_cast<const char*>(thisPack->getName().c_str());
 		int len = MultiByteToWideChar(CP_UTF8, 0, name, -1, NULL, 0);
 		std::wstring wName(len, 0);
 		MultiByteToWideChar(CP_UTF8, 0, name, -1, &wName[0], len);
@@ -1160,7 +1161,7 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 	{
 		DLCPack *thisPack = app.m_dlcManager.getPack(nextPackIndex - SKIN_SELECT_MAX_DEFAULTS, DLCManager::e_DLCType_Skin);
 		// Fix the incorrect string type on title to display correctly
-		const char* name = static_cast<const char*>(thisPack->getName().c_str());
+		const char* name = reinterpret_cast<const char*>(thisPack->getName().c_str());
 		int len = MultiByteToWideChar(CP_UTF8, 0, name, -1, NULL, 0);
 		std::wstring wName(len, 0);
 		MultiByteToWideChar(CP_UTF8, 0, name, -1, &wName[0], len);
@@ -1185,7 +1186,7 @@ void UIScene_SkinSelectMenu::updatePackDisplay()
 	{
 		DLCPack *thisPack = app.m_dlcManager.getPack(previousPackIndex - SKIN_SELECT_MAX_DEFAULTS, DLCManager::e_DLCType_Skin);
 		// Fix the incorrect string type on title to display correctly
-		const char* name = static_cast<const char*>(thisPack->getName().c_str());
+		const char* name = reinterpret_cast<const char*>(thisPack->getName().c_str());
 		int len = MultiByteToWideChar(CP_UTF8, 0, name, -1, NULL, 0);
 		std::wstring wName(len, 0);
 		MultiByteToWideChar(CP_UTF8, 0, name, -1, &wName[0], len);
