@@ -359,7 +359,6 @@ void UIScene_MainMenu::handlePress(F64 controlId, F64 childId)
 		m_eAction=eAction_RunUnlockOrDLC;
 		signInReturnedFunc = &UIScene_MainMenu::UnlockFullGame_SignInReturned;
 		break;
-#if defined _XBOX
 	case eControl_Exit:
 		if( ProfileManager.IsFullVersion() )
 		{				
@@ -370,13 +369,14 @@ void UIScene_MainMenu::handlePress(F64 controlId, F64 childId)
 		}
 		else
 		{
+#ifdef _XBOX
 #ifdef _XBOX_ONE
 				ui.ShowPlayerDisplayname(true);
 #endif
 			ui.NavigateToScene(primaryPad,eUIScene_TrialExitUpsell);
+#endif
 		}
 		break;
-#endif
 
 #ifdef _DURANGO
 	case eControl_XboxHelp:
