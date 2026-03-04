@@ -547,8 +547,8 @@ void ItemInHandRenderer::render(float a)
 	{
         glPushMatrix();
         float d = 0.8f;
-
-#if defined __ORBIS__ || defined __PS3__
+		// Force PS3 swing (original swing speed) for all platforms for consistency
+#if 1// defined __ORBIS__ || defined __PS3__ 
 		static const float swingPowFactor = 1.0f;
 #else
 		static const float swingPowFactor = 4.0f;		// 4J added, to slow the swing down when nearest the player for avoiding luminance flash issues
